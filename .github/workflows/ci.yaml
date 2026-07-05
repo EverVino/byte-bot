@@ -1,0 +1,29 @@
+name: Continuous Integration
+
+on:
+  push: 
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-test-lint:
+    runs-on: ubuntu-lastest
+    steps:
+    - name: Dowload the repo code
+      uses: actions/checkout@v4
+    
+    - name: Setup uv env
+      uses: astral-sh/setup-uv@v5
+      with:
+        version: "lastest"
+        emable-cache: true
+        cache-dependency-glob: uv.lock
+    
+    - name: Lint and format checkout
+      run: |
+        uv run ruff format --check .
+
+    - name: Run linting
+      run: |
+        uv run python -m pytest
