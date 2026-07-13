@@ -8,9 +8,9 @@ on:
 
 jobs:
   build-test-lint:
-    runs-on: ubuntu-lastest
+    runs-on: [self-hosted, docker]
     steps:
-    - name: Dowload the repo code
+    - name: Download the repo code
       uses: actions/checkout@v4
     
     - name: Setup uv env
