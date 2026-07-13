@@ -16,8 +16,8 @@ jobs:
     - name: Setup uv env
       uses: astral-sh/setup-uv@v5
       with:
-        version: "lastest"
-        emable-cache: true
+        version: "latest"
+        enable-cache: true
         cache-dependency-glob: uv.lock
     
     - name: Lint and format checkout
