@@ -20,10 +20,10 @@ jobs:
         enable-cache: true
         cache-dependency-glob: uv.lock
     
-    - name: Lint and format checkout
+    - name: Lint checkout
       run: |
-        uv run ruff format --check .
+        uv run ruff check .
 
-    - name: Run linting
+    - name: Run tests
       run: |
         uv run python -m pytest
